@@ -1,10 +1,12 @@
 const router = require('express').Router();
 
-//const commentRoutes = require('./comment-routes');
-//const pizzaRoutes = require('./pizza-routes');
+const userRoutes = require('./user-routes');
+const thoughtRoutes = require('./thought-routes');
 
-// add prefix of `/pizzas` to routes created in `pizza-routes.js`
-//router.use('/comments', commentRoutes);
-//router.use('/pizzas', pizzaRoutes);
+// User routes
+router.use('/users', userRoutes);
 
-//module.exports = router;
+// Thought routes
+router.use('/thoughts', thoughtRoutes);
+
+module.exports = router;
