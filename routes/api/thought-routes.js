@@ -14,20 +14,20 @@ const {
 // /api/thoughts routes
 router
     .route('/')
+    .post(addThought)
     .get(getAllThoughts);
 
 // /api/thoughts/:userId/:thoughtId routes
 router
     .route('/:thoughtId')
     .get(getThought)
-    .post(addThought)
     .put(updateThought)
     .post(addReaction)
     .delete(deleteThought);
 
 // /api/thoughts/:userId/:reactionId routes
 router
-    .route('/:reactionId')
+    .route('/:thoughtId/reactions/:reactionId')
     .delete(deleteReaction);
 
 module.exports = router;

@@ -12,7 +12,7 @@
     "url": "git+https://github.com/lstillwe/deep-thoughts-api.git"
   },
   "author": "Lisa Stillwell",
-  "license": "ISC",
+  "license": "BSD",
   "bugs": {
     "url": "https://github.com/lstillwe/deep-thoughts-api/issues"
   },

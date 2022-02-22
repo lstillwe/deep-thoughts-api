@@ -1,19 +1,19 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 
 const ReactionSchema = new Schema(
 {
   reactionId: {
-    type: Schema.Types.ObjectId,
+    type: Types.ObjectId,
     default: () => new Types.ObjectId(),
   },
   reactionBody: {
     type: String,
-    required: true,
+    required: [true, "Reaction text is Required"],
     maxlength: 280
   },
   username: {
     type: String,
-    required: true
+    required: [true, "User name is required"]
   },
   createdAt: {
     type: Date,
@@ -42,6 +42,10 @@ const ThoughtSchema = new Schema(
   username: {
     type: String,
     required: [true, "User name is Required"]
+  },
+  userId: {
+    type: Schema.Types.ObjectId,
+    required: [true, "User id is Required"]
   },
   reactions: [ReactionSchema]
 },

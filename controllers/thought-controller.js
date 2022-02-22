@@ -30,10 +30,11 @@ const thoughtController = {
 
     // add thought to user
     addThought({ body }, res) {
-        Thought.create({
-            thoughtText: body.thoughtText,
-            username: body.username
-        })
+        // Thought.create({
+        //     thoughtText: body.thoughtText,
+        //     username: body.username
+        // })
+        Thought.create(body)
         .then(({ _id }) => {
             return User.findOneAndUpdate(
                 { _id: body.userId },
@@ -82,7 +83,7 @@ const thoughtController = {
     },
 
     // add a reaction to a thought
-    addReaction({ params, body }){
+    addReaction({ params, body }, res){
         Thought.findOneAndUpdate(
             { _id: params.thoughtId },
             { $push: { reactions: body } },
